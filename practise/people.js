@@ -39,20 +39,21 @@ function marriedStatusInString(arrName) {
 function returnMarried(arrName) {
   const newArr = [];
   arrName.forEach((onePerson) => {
+    const fullName = `${onePerson.name}-${onePerson.surname}`;
     if (onePerson.sex === 'male' && onePerson.married === true) {
-      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      const info = `${fullName} yra vedęs`;
       newArr.push(info);
       console.log(info);
     } else if (onePerson.sex === 'male' && onePerson.married === false) {
-      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      const info = `${fullName} nėra vedęs`;
       newArr.push(info);
       console.log(info);
     } else if (onePerson.sex === 'female' && onePerson.married === true) {
-      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      const info = `${fullName} yra ištekėjus`;
       newArr.push(info);
       console.log(info);
     } else if (onePerson.sex === 'female' && onePerson.married === false) {
-      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      const info = `${fullName} nėra ištekėjus`;
       newArr.push(info);
       console.log(info);
     }
@@ -60,4 +61,6 @@ function returnMarried(arrName) {
   return newArr;
 }
 const checkMarriedStatus = returnMarried(people);
-console.log('checkMarriedStatus ===', checkMarriedStatus);
+console.log(checkMarriedStatus);
+
+// 5. Sukurkite kaitos funkciją, kuri grąžintų objektą su lytimi ir uždirbamu pinigų kiekiu
