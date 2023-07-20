@@ -31,4 +31,33 @@ function marriedStatusInString(arrName) {
     }
   });
 }
-marriedStatusInString(people);
+// marriedStatusInString(people);
+
+// 4. Parašykite funkcijas pagal 2 ir 3 užduotį,
+// kurios vietoj to kad spausdintų, rezultatus grąžintų.
+// Tuomet rezultatai būtų atspausdinti naudojant funkciją aprašytą pirmu punktu.
+function returnMarried(arrName) {
+  const newArr = [];
+  arrName.forEach((onePerson) => {
+    if (onePerson.sex === 'male' && onePerson.married === true) {
+      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      newArr.push(info);
+      console.log(info);
+    } else if (onePerson.sex === 'male' && onePerson.married === false) {
+      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      newArr.push(info);
+      console.log(info);
+    } else if (onePerson.sex === 'female' && onePerson.married === true) {
+      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      newArr.push(info);
+      console.log(info);
+    } else if (onePerson.sex === 'female' && onePerson.married === false) {
+      const info = `${onePerson.name}-${onePerson.surname} yra vedęs`;
+      newArr.push(info);
+      console.log(info);
+    }
+  });
+  return newArr;
+}
+const checkMarriedStatus = returnMarried(people);
+console.log('checkMarriedStatus ===', checkMarriedStatus);
