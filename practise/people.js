@@ -65,8 +65,17 @@ function returnMarried(arrName) {
 // console.log(checkMarriedStatus);
 
 // 5. Sukurkite kaitos funkciją, kuri grąžintų objektą su lytimi ir uždirbamu pinigų kiekiu
-// ???????????????
-
+function sexAndIncArray(arrName) {
+  const newArr = arrName.map((onePerson) => {
+    return {
+      sex: onePerson.sex,
+      income: onePerson.income,
+    };
+  });
+  return newArr;
+}
+const checkSexAndIncome = sexAndIncArray(people);
+console.log(checkSexAndIncome);
 // 6. Sukurkite funkciją, kuri grąžintų objektą su vardu, pavarde ir lytimi.
 // Tuomet panaudoje ją, grazinkite masyvą,
 
@@ -96,4 +105,18 @@ function maleDrivers(arrName) {
     }
   });
 }
-maleDrivers(people);
+// maleDrivers(people);
+
+let manDriver = 0;
+let ladyDriver = 0;
+people.forEach((onePerson) => {
+  if (onePerson.hasCar) {
+    if (onePerson.sex === 'male') {
+      manDriver += 1;
+    } else {
+      ladyDriver += 1;
+    }
+  }
+});
+// console.log('manDriver ===', manDriver);
+// console.log('ladyDriver ===', ladyDriver);
