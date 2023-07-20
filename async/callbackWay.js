@@ -5,18 +5,45 @@ console.log('callbackWay.js file was loaded');
 
 // sakysim kad mums reikia pagaminti objekta su username, town, age
 
-function getUsername() {
-  return 'James';
+function getUsername(callback) {
+  console.log('pries timeout');
+  setTimeout(() => {
+    console.log('1. vardas: James');
+    callback();
+  }, 2000);
+  console.log('po timeout');
 }
-function getTown() {
-  return 'London';
+function getTown(callback) {
+  setTimeout(() => {
+    console.log('2. miestas: London');
+    callback();
+  }, 2500);
 }
 function getAge() {
-  return 47;
+  setTimeout(() => {
+    console.log('3. amzius: 47');
+  }, 1000);
 }
 
-const fullUserObj = {
-  username: '',
-  town: '',
-  age: '',
-};
+// jei butu daugiau lygiu, tai yra vadinama 'callback hell'
+getUsername(() => {
+  getTown(() => {
+    getAge();
+  });
+});
+// getTown();
+// getAge();
+
+function getValueAfter(callback) {
+  let rez;
+  setTimeout(() => {
+    rez = 'gryzo reiksme';
+    callback('gryzo reiksme');
+  }, 2000);
+  return rez;
+}
+
+const reiksme = getValueAfter((reiksmePoTimeout) => {
+  console.log('reiksmePoTimeout ===', reiksmePoTimeout);
+});
+console.log('reiksme ===', reiksme);
