@@ -11,6 +11,9 @@ const rez = sum(10, 15, makeCurrency);
 const rez2 = sum(100, 150, makeEuroCurrency);
 // console.log(sum(10, 15));
 
+sum(10, 50, makeCurrency);
+sum(5000, 1500, makeEuroCurrency);
+
 function makeCurrency(num) {
   const currencyFormat = `$${num}.00 ct`;
   console.log(currencyFormat);
