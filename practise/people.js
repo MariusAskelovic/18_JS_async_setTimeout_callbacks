@@ -97,6 +97,7 @@ function newPeopleArr(arrName) {
 //////////////// = UZD 2 =
 
 console.log('//////////////// = UZD 2 =');
+
 // 5. Naudojant Array.prototype.forEach atspausdinti visų vairuojančių žmonių amziu.
 function driversAge(arrName) {
   arrName.forEach((onePerson) => {
@@ -105,7 +106,7 @@ function driversAge(arrName) {
     }
   });
 }
-driversAge(people);
+// driversAge(people);
 
 let manDriver = 0;
 let ladyDriver = 0;
@@ -120,3 +121,14 @@ people.forEach((onePerson) => {
 });
 // console.log('manDriver ===', manDriver);
 // console.log('ladyDriver ===', ladyDriver);
+
+// 8. Pagal people masyvą, naudojant Array.prototype.map,
+// suformuokite masyva pakeičiant savybę 'income' į 'salary'
+
+const arrCopySalary = [];
+people.map((onePerson) => {
+  onePerson.salary = onePerson.income;
+  delete onePerson.income;
+  arrCopySalary.push(onePerson);
+});
+// console.table(arrCopySalary);
