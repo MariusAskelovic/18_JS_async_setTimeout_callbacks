@@ -2,7 +2,6 @@
 console.log('setTimeout.js file was loaded');
 
 const btnEl = document.getElementById('btn');
-const timeEl = document.getElementById('time');
 
 console.log('im first');
 let count = 0;
@@ -24,13 +23,4 @@ function logKazka() {
   if (count >= 10) {
     clearInterval(interval1);
   }
-}
-
-setInterval(tick, 1000);
-tick(); // tam kad nebutu 1s delay
-function tick() {
-  const nowObj = new Date();
-  const formattedTime = nowObj.toLocaleString('lt', { timeStyle: 'medium' });
-  //   console.log(formattedTime);
-  timeEl.textContent = formattedTime;
 }
