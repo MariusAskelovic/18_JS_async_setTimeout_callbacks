@@ -60,7 +60,26 @@ function returnMarried(arrName) {
   });
   return newArr;
 }
-const checkMarriedStatus = returnMarried(people);
-console.log(checkMarriedStatus);
+// const checkMarriedStatus = returnMarried(people);
+// console.log(checkMarriedStatus);
 
 // 5. Sukurkite kaitos funkciją, kuri grąžintų objektą su lytimi ir uždirbamu pinigų kiekiu
+// ???????????????
+
+// 6. Sukurkite funkciją, kuri grąžintų objektą su vardu, pavarde ir lytimi.
+// Tuomet panaudoje ją, grazinkite masyvą,
+
+function mainInfoObj(onePerson) {
+  return {
+    name: onePerson.name,
+    surname: onePerson.surname,
+    sex: onePerson.sex,
+  };
+}
+
+function newPeopleArr(arrName) {
+  const newArr = arrName.map(mainInfoObj);
+  console.log(newArr);
+  return newArr;
+}
+newPeopleArr(people);
