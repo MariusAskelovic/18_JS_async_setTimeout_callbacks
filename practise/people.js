@@ -1,10 +1,11 @@
 import { people } from './peopleArr.js';
+console.table(people);
 
 // 1. Parašykite funkciją, kuri atspausdina visus žmones eilutėmis
 function printEachPerson(arrName) {
   return arrName.map((onePerson) => console.log(onePerson));
 }
-printEachPerson(people);
+// printEachPerson(people);
 
 // 2. Parašykite funkciją, kuri atspausdina visų žmonių vardus ir pavardes,
 // atskirtus brūkšneliu, pvz.: Serbentautas-Bordiūras
@@ -82,4 +83,17 @@ function newPeopleArr(arrName) {
   console.log(newArr);
   return newArr;
 }
-newPeopleArr(people);
+// newPeopleArr(people);
+
+//////////////// = UZD 2 =
+
+console.log('//////////////// = UZD 2 =');
+// 5. Naudojant Array.prototype.forEach atspausdinti visų vairuojančių žmonių amziu.
+function maleDrivers(arrName) {
+  arrName.forEach((onePerson) => {
+    if (onePerson.sex === 'male' && onePerson.hasCar) {
+      console.log(onePerson);
+    }
+  });
+}
+maleDrivers(people);
