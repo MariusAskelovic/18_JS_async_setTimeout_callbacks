@@ -39,7 +39,7 @@ function marriedStatusInString(arrName) {
 // Tuomet rezultatai būtų atspausdinti naudojant funkciją aprašytą pirmu punktu.
 function returnMarried(arrName) {
   const newArr = [];
-  arrName.forEach((onePerson) => {
+  arrName.map((onePerson) => {
     const fullName = `${onePerson.name}-${onePerson.surname}`;
     if (onePerson.sex === 'male' && onePerson.married === true) {
       const info = `${fullName} yra vedęs`;
@@ -75,7 +75,7 @@ function sexAndIncArray(arrName) {
   return newArr;
 }
 const checkSexAndIncome = sexAndIncArray(people);
-console.log(checkSexAndIncome);
+// console.log(checkSexAndIncome);
 // 6. Sukurkite funkciją, kuri grąžintų objektą su vardu, pavarde ir lytimi.
 // Tuomet panaudoje ją, grazinkite masyvą,
 
@@ -98,14 +98,14 @@ function newPeopleArr(arrName) {
 
 console.log('//////////////// = UZD 2 =');
 // 5. Naudojant Array.prototype.forEach atspausdinti visų vairuojančių žmonių amziu.
-function maleDrivers(arrName) {
+function driversAge(arrName) {
   arrName.forEach((onePerson) => {
-    if (onePerson.sex === 'male' && onePerson.hasCar) {
-      console.log(onePerson);
+    if (onePerson.hasCar) {
+      console.log(onePerson.age);
     }
   });
 }
-// maleDrivers(people);
+driversAge(people);
 
 let manDriver = 0;
 let ladyDriver = 0;
