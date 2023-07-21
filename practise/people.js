@@ -125,10 +125,28 @@ people.forEach((onePerson) => {
 // 8. Pagal people masyvą, naudojant Array.prototype.map,
 // suformuokite masyva pakeičiant savybę 'income' į 'salary'
 
-const arrCopySalary = [];
-people.map((onePerson) => {
+// const arrCopySalary = people.slice();
+// function incomeToSalary
+// NETEISINGAS (KEICIA MASYVA)
+const arrCopySalary = [...people];
+arrCopySalary.map((onePerson) => {
   onePerson.salary = onePerson.income;
   delete onePerson.income;
-  arrCopySalary.push(onePerson);
 });
 // console.table(arrCopySalary);
+// console.table(people);
+
+// 9. Pagal people masyvą, naudojant Array.prototype.map,
+// suformuokite masyva kuriame nebūtų lyties, vardo ir pavardės
+function semiAnnonimousArray(arrName) {
+  const newArr = [];
+  arrName.map((obj) => {
+    delete obj.sex;
+    delete obj.name;
+    delete obj.surname;
+    newArr.push(obj);
+  });
+  return newArr;
+}
+let checkSemiAnnoFn = semiAnnonimousArray(people);
+console.table(checkSemiAnnoFn);
