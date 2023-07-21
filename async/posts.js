@@ -11,15 +11,18 @@ const posts = [
 
 // gauti postus imituojam kad truka 1.5sek juos gauti
 function getPosts() {
-  setTimeout(() => {
-    console.log('Postai nupiesti');
-    appEl.innerHTML = '';
-    posts.forEach(({ title, body }) => {
-      const pEl = document.createElement('p');
-      pEl.textContent = `Title: ${title}. ${body}`;
-      appEl.append(pEl);
-    });
-  }, 1500);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log('Postai nupiesti');
+      appEl.innerHTML = '';
+      posts.forEach(({ title, body }) => {
+        const pEl = document.createElement('p');
+        pEl.textContent = `Title: ${title}. ${body}`;
+        appEl.append(pEl);
+        resolve();
+      });
+    }, 1500);
+  });
 }
 
 function printPostTitles() {
@@ -29,22 +32,26 @@ function printPostTitles() {
 }
 
 // create post funkcija kuti ideda nauja posta i pos masyva
-function createPost(newPostObj, callback) {
-  //   return new Promise((resolve, reject) => {
-  setTimeout(() => {
-    posts.push(newPostObj);
-    console.log('created Post');
-    callback();
-  }, 2500);
-  //   });
+function createPost(newPostObj) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(newPostObj);
+      console.log('created Post');
+      resolve();
+    }, 2500);
+  });
 }
 // debugger;
 // 1 iskviesti getPosts tik po to kai sukurem posta su createPost su callback fn
 const thirdPost = { title: 'Post Three', body: 'This is post Three body' };
-createPost(thirdPost, getPosts);
-createPost(thirdPost, printPostTitles);
+// createPost(thirdPost, getPosts);
+// createPost(thirdPost, printPostTitles);
 
 // getPosts();
 
 // 2 iskviesti getPosts tik po to kai sukurem posta su createPost su Promise
-// createPost().getPosts();
+createPost(thirdPost).then(getPosts);
+
+// 3. padaryti kad po to kai atsispausdina postai,
+// iskviestume printPostTitles();
+createPost(thirdPost).then(getPosts).then(printPostTitles);
