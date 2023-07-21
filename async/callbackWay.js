@@ -10,7 +10,7 @@ function getUsername(callback) {
   setTimeout(() => {
     console.log('1. vardas: James');
     callback();
-  }, 2000);
+  }, 500);
   console.log('po timeout');
 }
 function getTown(callback) {
@@ -22,7 +22,7 @@ function getTown(callback) {
 function getAge() {
   setTimeout(() => {
     console.log('3. amzius: 47');
-  }, 1000);
+  }, 300);
 }
 
 // jei butu daugiau lygiu, tai yra vadinama 'callback hell'
@@ -34,16 +34,16 @@ getUsername(() => {
 // getTown();
 // getAge();
 
-function getValueAfter(callback) {
-  let rez;
-  setTimeout(() => {
-    rez = 'gryzo reiksme';
-    callback('gryzo reiksme');
-  }, 2000);
-  return rez;
-}
+// function getValueAfter(callback) {
+//   let rez;
+//   setTimeout(() => {
+//     rez = 'gryzo reiksme';
+//     callback('gryzo reiksme');
+//   }, 2000);
+//   return rez;
+// }
 
-const reiksme = getValueAfter((reiksmePoTimeout) => {
-  console.log('reiksmePoTimeout ===', reiksmePoTimeout);
-});
-console.log('reiksme ===', reiksme);
+// const reiksme = getValueAfter((reiksmePoTimeout) => {
+//   console.log('reiksmePoTimeout ===', reiksmePoTimeout);
+// });
+// console.log('reiksme ===', reiksme);
